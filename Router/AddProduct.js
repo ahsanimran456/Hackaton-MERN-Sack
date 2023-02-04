@@ -22,7 +22,7 @@ function AddProducts(req, res) {
                 // ........when product exits .....//
                 if (product) {
                     console.log("user exist is db ")
-                    res.send({ message: " Product is Already token " })
+                    res.send({ message:"Product is Already token" })
                 }
                 // ........when Product does not exits .....//
                 else {
@@ -43,8 +43,8 @@ function AddProducts(req, res) {
             }
         })
     } else {
-        res.send({ Message: "Required parameter in missing" })
+        res.send({ message: "Required parameter is missing" })
     }
 }
 
-export default AddProducts;
+export {AddProducts,Products};
