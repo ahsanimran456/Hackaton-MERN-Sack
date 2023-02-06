@@ -5,6 +5,7 @@ import Deleteuser from "./Deleteuser.js";
 import {AddProducts} from "./AddProduct.js";
 import GetProducts from "./GetProducts.js";
 import Deleteproducts from "./DeleteProducts.js";
+import Editproduct from "./Editproduct.js";
 import mongoose from 'mongoose';
 
 
@@ -16,5 +17,5 @@ Router.get("/getusers",Getusers);
 Router.get("/getproducts",GetProducts)
 Router.delete("/deleteuser/:id",Deleteuser)
 Router.delete("/removeproduct/:id",Deleteproducts)
-R
+Router.put("/product/:id",Editproduct)
 export default Router
