@@ -59,7 +59,7 @@ function Adduser(req, res) {
                                 phone: body.phone,
                                 password: password,
                             })
-                            res.status(200).send({ message: 'Added user Successfully', data: adduserDb })
+                            res.status(200).send({ message: 'Added user Successfully !', data: adduserDb })
                         }
                         catch (err) {
                             console.log(err);
