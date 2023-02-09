@@ -1,0 +1,45 @@
+.slider-main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item-list{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0 15px 10px;
+    position: relative;
+    color: rgba(0,0,0,.87);
+    font-weight: 500;
+}
+.item-list-drop{
+    padding: 0px 0 15px 10px;
+    color: rgba(0,0,0,.87);
+}
+.item-list-drop div {
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+
+.item-list:hover,.item-list-drop div:hover{
+    cursor: pointer;
+    background-color:#e5d8f7;
+    color: #7E37D8;
+}
+
+.items-arrange{
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.drop{
+    position: absolute;
+    right: 3%;
+    display: flex;
+    align-items: center;
+}

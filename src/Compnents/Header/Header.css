@@ -1,0 +1,19 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    z-index: 1;
+    background-color: #fff;
+}
+.header-icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-icon div{
+    margin: 0 10px;
+}
+.header-icon div:hover{
+    cursor: pointer;
+}
