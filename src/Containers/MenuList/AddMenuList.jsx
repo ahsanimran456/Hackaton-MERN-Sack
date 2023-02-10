@@ -33,7 +33,7 @@ function AddMenulist() {
     const [errormessage, seterrormessage] = useState("");
 
     const addproduct = () => {
-        axios.post(`https://drab-erin-bighorn-sheep-ring.cyclic.app/addproducts`, {
+        axios.post(`http://localhost:5051/addproducts`, {
             ProductName: productname.trim(),
             Category: category,
             Price: price,
