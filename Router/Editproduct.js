@@ -16,7 +16,7 @@ async function Editproduct (req, res){
                 Description: body.Description,      
             },{new:true})
             console.log("updated data", editproduct)
-            res.send({ message: "Product edit successfully !" })
+            res.send({ message: "Product edit successfully" })
         }
         catch (error){
                 res.send ({

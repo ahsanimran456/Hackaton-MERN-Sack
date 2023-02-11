@@ -5,7 +5,9 @@ import {
     varifyHash,
     validateHash
 } from "bcrypt-inzi"
-const app = express()
+import cookieParser from 'cookie-parser'
+import  Jwt  from 'jsonwebtoken';
+
 const UsersSchema = mongoose.Schema(
     {
         fullname: { type: String, required: true },
@@ -16,36 +18,25 @@ const UsersSchema = mongoose.Schema(
     { timestamps: true }
 );
 
- const Users = mongoose.model("Users", UsersSchema);
+ const Appusers = mongoose.model("appusers", UsersSchema);
+const app = express()
 
-function Adduser(req, res) {
+
+function Signup(req, res) {
     const body = req.body
     console.log(body)
-    // if ((body.fullname) && (body.email) && (body.phone) && (body.password)) {
-    //     try {
-    //         const adduserDb = await Users.create(body)
-    //         res.status(200).send({ message: 'Added user Successfully', data: adduserDb })
-    //     }
-    //     catch (err) {
-    //         console.log(err);
-    //         res.send({ message: 'Server Error' })
-    //     }
-    // } else {
-    //     res.send({ Message: "Required parameter in missing" })
-    // }
-    // return
-
     let passwordValidation = /^[a-zA-Z0-9]{6,16}$/;
     let namevalid = /^[A-Za-z .]{3,20}$/
     let eamilvalid = /^([\w]*[\w\.]*(?!\.)@gmail.com)/
     let phonevalid = /^[0-9]{11}$/
     if ((namevalid.test(body.fullname)) && (body.email) && (phonevalid.test(body.phone)) && (passwordValidation.test(body.password))) {
-        Users.findOne({ email: body.email }, async (err, user) => {
+        Appusers.findOne({ email: body.email }, async (err, user) => {
             if (!err) {
                 // ........when user exits .....//
                 if (user) {
                     console.log("user exist is db ")
                     res.send({ message: "Email is already in use" })
+                    return
                 }
                 // ........when user does not exits .....//
                 else {
@@ -53,7 +44,7 @@ function Adduser(req, res) {
                     stringToHash(body.password).then(async (password) => {
                         console.log("hash: ", password);
                         try {
-                            const adduserDb = await Users.create({
+                            const adduserDb = await Appusers.create({
                                 fullname: body.fullname,
                                 email: body.email,
                                 phone: body.phone,
@@ -76,4 +67,4 @@ function Adduser(req, res) {
     return
 }
 
-export { Adduser,Users};
+export { Signup,Appusers};

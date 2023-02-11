@@ -4,13 +4,20 @@ import dotenv from 'dotenv';
 dotenv.config() 
 import Router from "./Router/Router.js";
 import cors from "cors"
+import cookieParser from 'cookie-parser'
+import multer from 'multer';
 
 
 const port = process.env.PORT
 const dbpass = process.env.DBPASS
 const app = express()
-app.use(cors());
+app.use(cors({
+    origin:["http://localhost:3000","*"],
+    credentials:true
+}));
+
 app.use(express.json());
+app.use(cookieParser())
 
 
 mongoose.connect(`mongodb+srv://ahsanimran:hackaton@cluster0.yoej8bl.mongodb.net/Hackaton?retryWrites=true&w=majority`)
